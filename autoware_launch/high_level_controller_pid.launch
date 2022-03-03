@@ -1,0 +1,78 @@
+<!-- -->
+<launch>
+
+  <!--
+    # pure_pursuit #
+    Follow a list of waypoints
+    In:  /final_waypoints
+    In:  /current_pose
+    In:  /current_velocity
+    Out: /ctrl_cmd
+    Out: /twist_raw
+    Out: /next_target_mark (@todo: not connected yet)
+    Out: /trajectory_circle_mark (@todo: not connected yet)
+  -->
+ <!-- <node pkg="rostopic" type="rostopic" name="config_waypoint_follower_rostopic"
+        args="pub -l /config/waypoint_follower autoware_config_msgs/ConfigWaypointFollower
+        '{ header: auto, param_flag: 0, velocity: 18.0, lookahead_distance: 3.0, lookahead_ratio: 1.5, minimum_lookahead_distance: 3.0, displacement_threshold: 0.0, relative_angle_threshold: 0.0 }' " />
+  <include file="$(find waypoint_follower)/launch/pure_pursuit.launch"/> --> 
+
+  <!-- 
+    # twist_filter #
+    @todo: purpose?
+    In:  /twist_raw
+    In:  /decision_maker/state (@todo: not connected yet)
+    Out: /vehicle_cmd (the combined vehicle command for actuator)
+  -->
+ <!-- <include file="$(find waypoint_follower)/launch/twist_filter.launch"/> -->
+
+<!-- 
+    # op_pid_controller #
+    In:  /vehicle_status 
+    In:  /current_pose
+    In:  /op_current_behavior
+    In:  /op_local_selected_trajectory
+    Out: /op_control_cmd
+  -->
+<include file="$(find op_pid_controller)/launch/op_pid_controller.launch" > 
+	<arg name="steer_mode" 			default="1" /> <!-- steer angle = 0, steer torque = 1 -->
+	<arg name="drive_mode" 			default="1" /> <!-- velocity = 0, pedals stroke = 1 -->
+		
+	<arg name="control_frequency" 		default="50"/> <!-- Hz -->
+	<arg name="avg_engine_brake_accel"	default="-1.0"/> <!-- m/s2 -->
+	<arg name="min_follow_safe_distance"	default="20.0"/> <!-- m, it should be smaller than min follow distance in op_common_params -->
+		
+	<arg name="max_steer_torque"		default="100"/>
+	<arg name="min_steer_torque"		default="-100"/> 
+	
+	<arg name="max_accel_value"		default="100"/>
+	<arg name="max_brake_value"		default="100"/>
+	
+	<arg name="steerGainKP" 		default="30.0"/>
+	<arg name="steerGainKI" 		default="10.0"/>
+	<arg name="steerGainKD" 		default="10.0"/>
+	
+	<arg name="accelGainKP" 		default="8.0"/>
+	<arg name="accelGainKI" 		default="3.5"/>
+	<arg name="accelGainKD" 		default="2.5"/>
+	
+	<arg name="brakeGainKP" 		default="5.0"/>
+	<arg name="brakeGainKI" 		default="2.5"/>
+	<arg name="brakeGainKD" 		default="0.0"/> 	
+
+	<arg name="accelInitDelay" 		default="0.0"/> <!-- seconds --> 
+	<arg name="accelAvgDelay" 		default="0.0"/> <!-- seconds --> 
+	<arg name="avgAcceleration"		default="2.75"/> <!-- m/s2 -->
+	
+	<arg name="brakeInitDelay" 		default="0.0"/> <!-- seconds -->
+	<arg name="brakeAvgDelay" 		default="0.0"/> <!-- seconds -->
+	<arg name="avgDeceleration"		default="-2.75"/> <!-- m/s2 -->
+	 
+		
+	<arg name="manual_velocity_calibration" default="false" />
+	<arg name="calibrate_max_velocity"	default="3"/> <!-- m/s -->
+	<arg name="use_op_internal_acc" 	default="false" />
+</include>
+
+
+</launch>

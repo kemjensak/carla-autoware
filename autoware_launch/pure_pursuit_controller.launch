@@ -1,0 +1,62 @@
+<!-- -->
+<launch>
+                     
+  <!-- For Pure Pursuit -->
+  <arg name="is_linear_interpolation" default="True"/>
+  <arg name="publishes_for_steering_robot" default="True"/>
+  <arg name="add_virtual_end_waypoints" default="True"/>
+  <arg name="const_lookahead_distance" default="4.0"/>
+  <arg name="const_velocity" default="5.0"/>
+  <arg name="lookahead_ratio" default="2.0"/>
+  <arg name="minimum_lookahead_distance" default="4.0"/>
+  <arg name="wheel_base" default="2.7" />
+
+  <!-- 0 = waypoints, 1 = provided constant velocity -->
+  <arg name="velocity_source" default="0"/>
+
+  <param name="vehicle_info/wheel_base" value="$(arg wheel_base)" />
+
+  <!-- For twist_filter -->
+  <arg name="lateral_accel_limit" default="5.0" />
+  <arg name="lateral_jerk_limit" default="5.0" />
+  <arg name="lowpass_gain_linear_x" default="0.0" />
+  <arg name="lowpass_gain_angular_z" default="0.0" />
+  <arg name="lowpass_gain_steering_angle" default="0.0" />
+  <arg name="enable_smoothing" default="false" />
+  <arg name="enable_debug" default="false" />
+
+  
+
+  <!-- rosrun waypoint_follower pure_pursuit -->
+  <node pkg="pure_pursuit" type="pure_pursuit" name="pure_pursuit" output="log">
+    <param name="is_linear_interpolation" value="$(arg is_linear_interpolation)"/>
+    <param name="publishes_for_steering_robot" value="$(arg publishes_for_steering_robot)"/>
+    <param name="add_virtual_end_waypoints" value="$(arg add_virtual_end_waypoints)"/>
+    <param name="const_lookahead_distance" value="$(arg const_lookahead_distance)"/>
+    <param name="const_velocity" value="$(arg const_velocity)"/>
+    <param name="lookahead_ratio" value="$(arg lookahead_ratio)"/>
+    <param name="minimum_lookahead_distance" value="$(arg minimum_lookahead_distance)"/>
+    <param name="velocity_source" value="$(arg velocity_source)"/>
+  </node>
+
+
+
+  <!-- For twist_gate -->
+  <arg name="use_decision_maker" default="false" />
+
+  <!-- rosrun waypoint_follower twist_filter -->
+  <node pkg="twist_filter" type="twist_filter" name="twist_filter" output="screen">
+    <param name="lateral_accel_limit" value="$(arg lateral_accel_limit)" />
+    <param name="lateral_jerk_limit" value="$(arg lateral_jerk_limit)" />
+    <param name="lowpass_gain_linear_x" value="$(arg lowpass_gain_linear_x)" />
+    <param name="lowpass_gain_angular_z" value="$(arg lowpass_gain_angular_z)" />
+    <param name="lowpass_gain_steering_angle" value="$(arg lowpass_gain_steering_angle)" />
+    <param name="enable_smoothing" value="$(arg enable_smoothing)" />
+    <param name="enable_debug" value="$(arg enable_debug)" />
+  </node>
+
+  <node pkg="twist_gate" type="twist_gate" name="twist_gate" output="screen">
+    <param name="use_decision_maker" value="$(arg use_decision_maker)" />
+  </node>
+
+</launch>

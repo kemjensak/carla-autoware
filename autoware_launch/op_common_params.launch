@@ -1,0 +1,73 @@
+<!-- -->
+<launch>
+<arg name="op_logs_experiment_folder_name" default=""/>
+<arg name="kml_map_path" default=""/>
+
+  <!-- 
+    # open planner common params #
+    @todo: still required?
+  -->
+<include file="$(find op_local_planner)/launch/op_common_params.launch">
+	<arg name="mapSource" 			default="2" /> <!-- Autoware=0, Vector Map Folder=1, kml=2 -->
+	<arg name="mapFileName" 		value='$(arg kml_map_path)' />
+		
+	<arg name="pathDensity" 		default="0.5" />
+	<arg name="rollOutDensity" 		default="0.9" />
+	<arg name="rollOutsNumber" 		default="9"    />
+
+	<arg name="maxLocalPlanDistance" 	default="100" />	
+	<arg name="horizonDistance" 		default="120"  />
+	
+	<arg name="minFollowingDistance" 	default="80.0"  /> <!-- should be bigger than Distance to follow -->	
+	<arg name="minDistanceToAvoid" 		default="50.0" /> <!-- should be smaller than minFollowingDistance and larger than maxDistanceToAvoid -->
+	<arg name="maxDistanceToAvoid" 		default="6.0"  /> <!-- should be smaller than minDistanceToAvoid -->
+	<arg name="speedProfileFactor"		default="1.0"  />
+	
+	<arg name="smoothingDataWeight"		default="0.45"  />
+	<arg name="smoothingSmoothWeight"	default="0.4"  />	
+	
+	<arg name="horizontalSafetyDistance"	default="1.0"  />
+	<arg name="verticalSafetyDistance"	default="0.5"  />
+	
+	<arg name="enableSwerving" 		default="true"  />
+	<arg name="enableFollowing" 		default="false" />	
+	<arg name="enableTrafficLightBehavior"  default="false" />
+	<arg name="enableStopSignBehavior" 	default="false" />	
+	<arg name="enableLaneChange" 		default="true" />	
+	
+	<!-- Vehicle Info, shared with controller and simulation -->
+	<arg name="height" 			default="1.47"  />
+	<arg name="front_length"		default="1.0"  />
+	<arg name="back_length"			default="0.6"  />
+	<arg name="width" 			default="1.85"  />
+	<arg name="length" 			default="4.2"  />
+	<arg name="wheelBaseLength" 		default="2.7"  />
+	<arg name="turningRadius"		default="3.2"  />
+	<arg name="maxWheelAngle" 		default="1.22" />
+	<arg name="steeringDelay" 		default="0.3" />
+	<arg name="minPursuiteDistance" 	default="5.0" />
+	<arg name="maxVelocity" 		default="10.0" />
+	<arg name="minVelocity" 		default="0.2" />
+	<arg name="maxAcceleration" 		default="2" />
+	<arg name="maxDeceleration" 		default="-2" />
+	<!-- Internal ACC parameters -->
+	<arg name="use_internal_acc" 		default="true" />
+	<arg name="accelerationPushRatio" 	default="5" />
+	<arg name="brakingPushRatio" 		default="7" />
+	<arg name="curveSlowDownRatio" 		default="3.0" />	
+	<!-- ................................................... -->
+
+	<arg name="additionalBrakingDistance"   default="10.0" />	
+	<arg name="giveUpDistance" 		default="0.0"  />
+			
+	<arg name="velocitySource"		default="3" /> <!-- read velocities from (0- Odometry, 1- autoware current_velocities, 2- car_info 3- vehicle status) -->
+	<arg name="vel_odom_topic"		default="/carla/zati/odometry" />
+	<arg name="vel_curr_topic"		default="/current_velocity" />
+	<arg name="vel_can_topic"		default="/can_info" />
+	<arg name="vehicle_status_topic"	default="/vehicle_status" />								
+	<arg name="experimentName" 		value='$(arg op_logs_experiment_folder_name)' />
+	<arg name="objects_input_topic" 	default="/detection/contour_tracker/objects" />
+	
+  </include> 
+
+</launch>

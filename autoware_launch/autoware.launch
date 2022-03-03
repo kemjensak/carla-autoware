@@ -1,0 +1,54 @@
+
+<launch>
+  <arg name='role_name' default='ego_vehicle'/>
+  <arg name="enable_openplanner_simulation" default="true"/>
+  <arg name="enable_object_insert" default="true"/>
+  <arg name="op_logs_experiment_folder_name" default="carla"/>
+  <arg name="kml_map_path" default=""/>
+  <arg name="wheel_base" default="2.7"/>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/hdmap_loader.launch"/>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/ground_filter.launch"/>
+
+  <!-- <include file="$(env CARLA_AUTOWARE_ROOT)/localization.launch">
+  	<arg name='role_name' value='$(arg role_name)'/>
+  </include> -->
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/fixed_base.launch"/>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/vel_pose_connector.launch"/>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/object_detection_tracking.launch">
+  	<arg name='role_name' value='$(arg role_name)'/>
+  	<arg name='enable_openplanner_simulation' value='$(arg enable_openplanner_simulation)'/>
+  	<arg name='enable_object_insert' value='$(arg enable_object_insert)'/>
+  </include>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/op_global_planner.launch"> 
+	  <arg name="op_logs_experiment_folder_name" value='$(arg op_logs_experiment_folder_name)'/>
+	  <arg name="kml_map_path" value='$(arg kml_map_path)'/>
+  </include>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/op_common_params.launch">  
+	  <arg name="op_logs_experiment_folder_name" value='$(arg op_logs_experiment_folder_name)'/>
+	  <arg name="kml_map_path" value='$(arg kml_map_path)'/>
+  </include>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/op_local_planner.launch">  
+  	<arg name='enable_openplanner_simulation' value='$(arg enable_openplanner_simulation)'/>
+  	<arg name='enable_object_insert' value='$(arg enable_object_insert)'/>
+	<arg name="kml_map_path" value='$(arg kml_map_path)'/>
+  </include>
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/traffic_light_detector.launch">  
+  	<arg name='role_name' value='$(arg role_name)'/>
+  </include> 
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/pure_pursuit_controller.launch">  
+  	<arg name='wheel_base' value='$(arg wheel_base)'/>
+  </include> 
+
+  <include file="$(env CARLA_AUTOWARE_ROOT)/high_level_controller_direct.launch"/> 
+
+</launch>

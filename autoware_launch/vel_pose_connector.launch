@@ -1,0 +1,16 @@
+<!-- -->
+<launch>
+  <!-- 
+    # vel_pose_connect #
+    the vehicle status is read and a can_velocity (geometry_msgs::TwistStamped) is calculated (by can_status_translator)
+    In:  /vehicle_status
+    In:  /can_info            (@todo not published yet)
+    Out: /linear_velocity_viz (visualization of velocity)
+    out: /can_velocity
+  -->
+  <include file="$(find autoware_connector)/launch/vel_pose_connect.launch">
+    <arg name="topic_pose_stamped" value="/ndt_pose" />
+    <arg name="topic_twist_stamped" value="/can_velocity" />
+  </include>
+
+</launch>

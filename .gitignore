@@ -1,0 +1,9 @@
+*.swp
+*.code-workspace
+*.cproject
+*.project
+*.settings
+*.vscode
+*.pcd
+/catkin_ws/build
+/catkin_ws/devel

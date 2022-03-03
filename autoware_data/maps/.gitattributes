@@ -1,0 +1,7 @@
+Town04.pcd filter=lfs diff=lfs merge=lfs -text
+Town05.pcd filter=lfs diff=lfs merge=lfs -text
+Town06.pcd filter=lfs diff=lfs merge=lfs -text
+Town07.pcd filter=lfs diff=lfs merge=lfs -text
+Town01.pcd filter=lfs diff=lfs merge=lfs -text
+Town02.pcd filter=lfs diff=lfs merge=lfs -text
+Town03.pcd filter=lfs diff=lfs merge=lfs -text
