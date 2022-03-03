@@ -51,13 +51,18 @@
 	<arg name="enablePrediction" default="false" />	 				 		
 	<arg name="keepCurrentTrajectory" default="true" />
 	
-	<!-- all weights sum must equal 1 -->
+  <arg name="weight_priority" 	default="0.2"/>
+	<arg name="weight_transition" 	default="0.5"/>
+	<arg name="weight_longitudinal" default="0.15"/>
+	<arg name="weight_lateral" 	default="0.15"/>
+	<arg name="weight_lane_change" 	default="0.0"/>
+  <!-- all weights sum must equal 1 -->
 	<!-- ............................ -->
-	<arg name="weight_priority" 	default="0.4"/>
-	<arg name="weight_transition" 	default="0.0"/>
+	<!-- <arg name="weight_priority" 	default="0.2"/>
+	<arg name="weight_transition" 	default="0.2"/>
 	<arg name="weight_longitudinal" default="0.2"/>
 	<arg name="weight_lateral" 	default="0.2"/>
-	<arg name="weight_lane_change" 	default="0.2"/>
+	<arg name="weight_lane_change" 	default="0.2"/> -->
 	<!-- ............................ -->
 	
 	<arg name="collision_time" 	default="5"/> <!-- in seconds -->
