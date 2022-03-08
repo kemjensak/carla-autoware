@@ -12,8 +12,8 @@
 	<arg name="mapFileName" 		value='$(arg kml_map_path)' />
 		
 	<arg name="pathDensity" 		default="0.5" />
-	<arg name="rollOutDensity" 		default="0.9" />
-	<arg name="rollOutsNumber" 		default="9"    />
+	<arg name="rollOutDensity" 		default="0.5" />
+	<arg name="rollOutsNumber" 		default="6"    />
 
 	<arg name="maxLocalPlanDistance" 	default="100" />	
 	<arg name="horizonDistance" 		default="120"  />
@@ -30,7 +30,7 @@
 	<arg name="verticalSafetyDistance"	default="0.5"  />
 	
 	<arg name="enableSwerving" 		default="true"  />
-	<arg name="enableFollowing" 		default="false" />	
+	<arg name="enableFollowing" 		default="true" />	
 	<arg name="enableTrafficLightBehavior"  default="false" />
 	<arg name="enableStopSignBehavior" 	default="false" />	
 	<arg name="enableLaneChange" 		default="true" />	

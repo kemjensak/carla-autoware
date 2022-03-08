@@ -52,7 +52,7 @@
 	<arg name="steerGainKI" 		default="10.0"/>
 	<arg name="steerGainKD" 		default="10.0"/>
 	
-	<arg name="accelGainKP" 		default="8.0"/>
+	<arg name="accelGainKP" 		default="6.0"/>
 	<arg name="accelGainKI" 		default="3.5"/>
 	<arg name="accelGainKD" 		default="2.5"/>
 	
