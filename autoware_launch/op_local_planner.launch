@@ -49,13 +49,13 @@
   -->
 <include file="$(find op_local_planner)/launch/op_trajectory_evaluator.launch">	
 	<arg name="enablePrediction" default="false" />	 				 		
-	<arg name="keepCurrentTrajectory" default="true" />
+	<arg name="keepCurrentTrajectory" default="false" />
 	
-  <arg name="weight_priority" 	default="0.2"/>
-	<arg name="weight_transition" 	default="0.2"/>
-	<arg name="weight_longitudinal" default="0.2"/>
-	<arg name="weight_lateral" 	default="0.2"/>
-	<arg name="weight_lane_change" 	default="0.2"/>
+  <arg name="weight_priority" 	default="0.1"/>
+	<arg name="weight_transition" 	default="0.1"/>
+	<arg name="weight_longitudinal" default="0.1"/>
+	<arg name="weight_lateral" 	default="0.1"/>
+	<arg name="weight_lane_change" 	default="0.6"/>
   <!-- all weights sum must equal 1 -->
 	<!-- ............................ -->
 	<!-- <arg name="weight_priority" 	default="0.2"/>

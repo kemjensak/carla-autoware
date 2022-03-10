@@ -1,8 +1,8 @@
 
 <launch>
   <arg name='role_name' default='ego_vehicle'/>
-  <arg name="enable_openplanner_simulation" default="true"/>
-  <arg name="enable_object_insert" default="true"/>
+  <arg name="enable_openplanner_simulation" default="false"/>
+  <arg name="enable_object_insert" default="false"/>
   <arg name="op_logs_experiment_folder_name" default="carla"/>
   <arg name="kml_map_path" default=""/>
   <arg name="wheel_base" default="2.7"/>

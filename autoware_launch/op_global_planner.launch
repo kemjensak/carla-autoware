@@ -7,7 +7,7 @@
     # open planner, global planner params #
   -->
 <include file="$(find op_global_planner)/launch/op_global_planner.launch">
-	<arg name="pathDensity" 		default="0.75" /> <!-- distance between each two waypoints-->
+	<arg name="pathDensity" 		default="0.5" /> <!-- distance between each two waypoints-->
 	<arg name="enableSmoothing" 		default="true" /> 
 	<arg name="enableLaneChange" 		default="true" /> 
 	<arg name="enableRvizInput" 		default="true" /> 

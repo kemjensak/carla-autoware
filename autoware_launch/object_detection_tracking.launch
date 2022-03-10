@@ -17,7 +17,8 @@
     # lidar_euclidean_cluster_detect #
     @todo: still required?
   -->
-<group unless="$(arg enable_openplanner_simulation)">
+
+<group unless="$(arg enable_openplanner_simulation)"> 
   <include file="$(find lidar_euclidean_cluster_detect)/launch/lidar_euclidean_cluster_detect.launch">
     <arg name="output_frame" value="$(arg role_name)/lidar/lidar1" />
     <arg name="points_node" default="/points_no_ground" />
