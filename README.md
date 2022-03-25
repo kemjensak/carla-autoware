@@ -10,6 +10,6 @@ Integration of AutoWare AV software with the CARLA simulator
 
 ## Requirements
 
-- ROS kinetic
-- Autoware (tested with 1.12.0)
+- ROS melodic
+- Autoware (tested with 1.15.0)
 - CARLA 0.9.6
