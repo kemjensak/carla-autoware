@@ -1,11 +1,13 @@
-{ "sensors": [
+{
+    "sensors": [
         {
             "type": "sensor.camera.rgb",
             "id": "front",
             "x": 2.0, "y": 0.0, "z": 2.0, "roll": 0.0, "pitch": 0.0, "yaw": 0.0,
             "width": 800,
             "height": 600,
-            "fov": 100
+            "fov": 100,
+            "sensor_tick": 0.05
         },
         {
             "type": "sensor.camera.rgb",
@@ -13,17 +15,18 @@
             "x": -4.5, "y": 0.0, "z": 2.8, "roll": 0.0, "pitch": -20.0, "yaw": 0.0,
             "width": 800,
             "height": 600,
-            "fov": 100
+            "fov": 100,
+            "sensor_tick": 0.05
         },
         {
             "type": "sensor.lidar.ray_cast",
             "id": "lidar1",
             "x": 0.0, "y": 0.0, "z": 2.4, "roll": 0.0, "pitch": 0.0, "yaw": 0.0,
-            "range": 10000,
-            "channels": 64,
-            "points_per_second": 1310720,
-            "upper_fov": 11.25,
-            "lower_fov": -11.25,
+            "range": 5000,
+            "channels": 32,
+            "points_per_second": 320000,
+            "upper_fov": 2.0,
+            "lower_fov": -26.8,
             "rotation_frequency": 20,
             "sensor_tick": 0.05
         },

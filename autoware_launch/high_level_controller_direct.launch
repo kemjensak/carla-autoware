@@ -20,7 +20,7 @@
 	<arg name="max_steer_torque"		default="100"/>
 	<arg name="min_steer_torque"		default="-100"/> 
 	
-	<arg name="max_accel_value"		default="100"/>
+	<arg name="max_accel_value"		default="90"/>
 	<arg name="max_brake_value"		default="100"/>
 	
 	<arg name="steerGainKP" 		default="30.0"/> 

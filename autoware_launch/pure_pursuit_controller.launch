@@ -7,7 +7,7 @@
   <arg name="add_virtual_end_waypoints" default="True"/>
   <arg name="const_lookahead_distance" default="4.0"/>
   <arg name="const_velocity" default="5.0"/>
-  <arg name="lookahead_ratio" default="2.0"/>
+  <arg name="lookahead_ratio" default="1.2"/>
   <arg name="minimum_lookahead_distance" default="4.0"/>
   <arg name="wheel_base" default="2.7" />
 

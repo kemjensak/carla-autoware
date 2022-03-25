@@ -8,8 +8,8 @@
   -->
 <include file="$(find op_global_planner)/launch/op_global_planner.launch">
 	<arg name="pathDensity" 		default="0.5" /> <!-- distance between each two waypoints-->
-	<arg name="enableSmoothing" 		default="true" /> 
-	<arg name="enableLaneChange" 		default="true" /> 
+	<arg name="enableSmoothing" 		default="false" /> 
+	<arg name="enableLaneChange" 		default="false" /> 
 	<arg name="enableRvizInput" 		default="true" /> 
 	<arg name="enableHMI" 			default="false" /> 
 	<arg name="experimentName" 		value='$(arg op_logs_experiment_folder_name)' />

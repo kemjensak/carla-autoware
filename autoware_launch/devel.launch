@@ -8,8 +8,8 @@
   <arg name="spawn_point" default="325,195.3,0,0,0,180"/>
   <!-- <arg name="spawn_point" default="160,55,0,0,0,180"/> -->
   <!-- <arg name="spawn_point" default="-9.4,-152.8 ,0,0,0,270"/> -->
-  <arg name="enable_openplanner_simulation" default="true"/>
-  <arg name="enable_object_insert" default="true"/>
+  <arg name="enable_openplanner_simulation" default="false"/>
+  <arg name="enable_object_insert" default="false"/>
   <arg name="kml_map_path" default="/home/irol/ros_ws/carla-autoware/KmlMaps/Untitled04.kml"/>
 
   <include file="$(find carla_autoware_bridge)/launch/carla_autoware_bridge_with_manual_control.launch">
