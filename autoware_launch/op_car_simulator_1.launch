@@ -1,0 +1,63 @@
+<!-- -->
+<launch>
+
+  <!-- 
+    # open planner common params #
+    @todo: still required?
+  -->
+<include file="$(find op_local_planner)/launch/op_common_params.launch">
+	<arg name="mapSource" 			default="2" /> <!-- Autoware=0, Vector Map Folder=1, kml=2 -->
+	<arg name="mapFileName" 		default="/home/hatem/carla_simulator/KmlMaps/Town01.kml" />
+		
+	<arg name="pathDensity" 		default="0.5" />
+	<arg name="rollOutDensity" 		default="0.5" />
+	<arg name="rollOutsNumber" 		default="2"    />
+
+	<arg name="maxLocalPlanDistance" 	default="50" />	
+	<arg name="horizonDistance" 		default="100"  />
+	
+	<arg name="minFollowingDistance" 	default="50.0"  /> <!-- should be bigger than Distance to follow -->	
+	<arg name="minDistanceToAvoid" 		default="25.0" /> <!-- should be smaller than minFollowingDistance and larger than maxDistanceToAvoid -->
+	<arg name="maxDistanceToAvoid" 		default="5.0"  /> <!-- should be smaller than minDistanceToAvoid -->
+	<arg name="speedProfileFactor"		default="1.4"  />
+	
+	<arg name="smoothingDataWeight"		default="0.45"  />
+	<arg name="smoothingSmoothWeight"	default="0.3"  />	
+	
+	<arg name="horizontalSafetyDistance"	default="0.4"  />
+	<arg name="verticalSafetyDistance"	default="0.5"  />
+	
+	<arg name="enableSwerving" 		default="false"  />
+	<arg name="enableFollowing" 		default="true" />	
+	<arg name="enableTrafficLightBehavior"  default="false" />
+	<arg name="enableStopSignBehavior" 	default="false" />	
+	<arg name="enableLaneChange" 		default="false" />	
+	
+	<arg name="width" 			default="1.85"  />
+	<arg name="length" 			default="4.2"  />
+	<arg name="wheelBaseLength" 		default="2.7"  />
+	<arg name="turningRadius"		default="5.2"  />
+	<arg name="maxWheelAngle" 		default="0.85" />
+	<arg name="steeringDelay" 		default="0.5" />
+	<arg name="minPursuiteDistance" 	default="6.0" />
+	<arg name="maxVelocity" 		default="11.0" />
+	<arg name="minVelocity" 		default="0.0" />
+	<arg name="maxAcceleration" 		default="3.0" />
+	<arg name="maxDeceleration" 		default="-3.0" />
+
+
+	<arg name="additionalBrakingDistance"   default="1.0" />
+	
+	<arg name="giveUpDistance" 		default="0.0"  />
+			
+	<arg name="velocitySource"		default="3" /> <!-- read velocities from (0- Odometry, 1- autoware current_velocities, 2- car_info 3- vehicle status) -->
+	<arg name="vel_odom_topic"		default="/carla/zati/odometry" />
+	<arg name="vel_curr_topic"		default="/current_velocity" />
+	<arg name="vel_can_topic"		default="/can_info" />
+	<arg name="vehicle_status_topic"	default="/vehicle_status" />								
+	<arg name="experimentName" 		default="carla_calibration" />
+	<arg name="objects_input_topic" 	default="/detection/contour_tracker/objects" />
+	
+  </include> 
+
+</launch>

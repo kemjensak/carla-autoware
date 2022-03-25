@@ -1,0 +1,48 @@
+<!-- -->
+<launch>
+
+<!-- 
+    # op_direct_controller #
+    In:  /vehicle_status 
+    In:  /current_pose
+    In:  /op_current_behavior
+    In:  /op_local_selected_trajectory
+    Out: /op_control_cmd
+  -->
+<include file="$(find op_direct_controller)/launch/op_direct_controller.launch" > 
+	<arg name="steer_mode" 			default="0" /> <!-- steer angle = 0, steer torque = 1 -->
+	<arg name="drive_mode" 			default="1" /> <!-- velocity = 0, pedals stroke = 1 -->
+		
+	<arg name="control_frequency" 		default="20"/> <!-- Hz -->
+	<arg name="avg_engine_brake_accel"	default="-1.5"/> <!-- m/s2 -->
+	<arg name="min_follow_safe_distance"	default="20.0"/> <!-- m, it should be smaller than min follow distance in op_common_params -->
+		
+	<arg name="max_steer_torque"		default="100"/>
+	<arg name="min_steer_torque"		default="-100"/> 
+	
+	<arg name="max_accel_value"		default="100"/>
+	<arg name="max_brake_value"		default="100"/>
+	
+	<arg name="steerGainKP" 		default="30.0"/> 
+	<arg name="steerGainKI" 		default="10.0"/>
+	<arg name="steerGainKD" 		default="10.0"/>
+	
+	<arg name="accelGainKP" 		default="7.0"/>
+	<arg name="accelGainKI" 		default="4.0"/>
+	<arg name="accelGainKD" 		default="3.0"/>
+	
+	<arg name="brakeGainKP" 		default="10.0"/>
+	<arg name="brakeGainKI" 		default="6.0"/>
+	<arg name="brakeGainKD" 		default="1.0"/> 	
+
+	<arg name="accelInitDelay" 		default="0.0"/> <!-- seconds --> 
+	<arg name="accelAvgDelay" 		default="0.7"/> <!-- seconds --> 
+	<arg name="avgAcceleration"		default="2.55"/> <!-- m/s2 -->
+	
+	<arg name="brakeInitDelay" 		default="0.8"/> <!-- seconds -->
+	<arg name="brakeAvgDelay" 		default="0.3"/> <!-- seconds -->
+	<arg name="avgDeceleration"		default="-2.5"/> <!-- m/s2 -->
+	 
+</include>
+
+</launch>
