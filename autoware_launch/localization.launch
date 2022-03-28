@@ -69,7 +69,12 @@
   <include file="$(find lidar_localizer)/launch/ndt_matching.launch">
     <arg name="get_height" value="true" />
     <arg name="use_gnss" default="true" />
-    <arg name="use_odom" default="false" /> <!-- @todo: enabling leads to worse results -->
+    <arg name="use_imu" default="true" />
+    <arg name="imu_topic" default="/carla/$(arg role_name)/imu" />
+    <arg name="use_odom" default="true" /> <!-- @todo: enabling leads to worse results -->
   </include>
+
+  <!-- <include file="$(find lidar_localizer)/launch/ndt_matching_monitor.launch"> -->
+
 
 </launch>
