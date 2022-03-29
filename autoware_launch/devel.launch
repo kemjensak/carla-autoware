@@ -30,5 +30,13 @@
     <arg name='kml_map_path' value='$(arg kml_map_path)'/>
   </include>
 
+  <include file="$(find carla_ros_scenario_runner)/launch/carla_ros_scenario_runner.launch">
+    <arg name='role_name' value='$(arg role_name)'/>
+    <arg name='scenario_runner_path' value='/home/irol/scenario_runner'/>
+  </include>
+
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(env CARLA_AUTOWARE_ROOT)/rviz.rviz" />
+
+
 </launch>
 
