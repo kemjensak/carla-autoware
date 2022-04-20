@@ -4,15 +4,11 @@
   <arg name='port' default='2000'/>
   <arg name='town' default='Town04'/>
   <arg name='role_name' default='ego_vehicle'/>
-  <!-- use comma separated format "x,y,z,roll,pitch,yaw" -->
-  <!-- <arg name="spawn_point" default="325,195.3,10,0,0,180"/>  -->
   <arg name="spawn_point" default="-10,214,0.3,0,0,-90"/> <!-- For Town04 sim -->
-  <!-- <arg name="spawn_point" default="160,55,0,0,0,180"/> -->
-  <!-- <arg name="spawn_point" default="-9.4,-152.8 ,0,0,0,270"/> -->
   <arg name="enable_openplanner_simulation" default="false"/>
   <arg name="enable_object_insert" default="false"/>
-  <arg name="kml_map_path" default="/home/irol/ros_ws/carla-autoware/KmlMaps/Untitled04.kml"/>
-  <arg name="spawn_sensors_only" default="True"/>
+  <arg name="kml_map_path" default="~/ros_ws/carla-autoware/KmlMaps/Untitled04.kml"/>
+  <arg name="spawn_sensors_only" default="false"/>
 
   <include file="$(find carla_autoware_bridge)/launch/carla_autoware_bridge_with_manual_control.launch">
     <arg name='host' value='$(arg host)'/>
@@ -22,13 +18,13 @@
     <arg name="spawn_point" value="$(arg spawn_point)"/>
     <arg name='spawn_sensors_only' value='$(arg spawn_sensors_only)'/>
   </include>
-
+<!-- 
   <include file="$(env CARLA_AUTOWARE_ROOT)/autoware.launch">
     <arg name='role_name' value='$(arg role_name)'/>
     <arg name='enable_openplanner_simulation' value='$(arg enable_openplanner_simulation)'/>
     <arg name='enable_object_insert' value='$(arg enable_object_insert)'/>
     <arg name='kml_map_path' value='$(arg kml_map_path)'/>
-  </include>
+  </include> -->
 
   <!-- <include file="$(find carla_ros_scenario_runner)/launch/carla_ros_scenario_runner.launch">
     <arg name='role_name' value='$(arg role_name)'/>
