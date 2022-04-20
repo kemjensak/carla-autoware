@@ -23,7 +23,7 @@ class CarlaPointsMapLoader(object):
         """
         callback when a new map is set
         """
-        self.new_map_name = data.map_name
+        self.new_map_name = data.map_name.strip("Carla/Maps/")
 
     def __init__(self):
         """
@@ -32,6 +32,7 @@ class CarlaPointsMapLoader(object):
         rospy.init_node('carla_points_map_loader')
         self.node = None
         self.maps_path = rospy.get_param("/carla/maps_path")
+        rospy.loginfo(self.maps_path)
         self.new_map_name = None
         self.current_map_name = None
         self.lock = threading.Lock()  # to prevent start/stop while previous action was not finished
