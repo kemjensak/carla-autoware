@@ -13,7 +13,7 @@
 		
 	<arg name="pathDensity" 		default="0.5" />
 	<arg name="rollOutDensity" 		default="3.5" />
-	<arg name="rollOutsNumber" 		default="2"    />
+	<arg name="rollOutsNumber" 		default="0"    />
 
 	<arg name="maxLocalPlanDistance" 	default="50" />	
 	<arg name="horizonDistance" 		default="120"  />

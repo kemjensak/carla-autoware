@@ -96,9 +96,9 @@ Visualization Manager:
           Tree:
             world:
               map:
+                base_link:
+                  {}
                 ego_vehicle:
-                  base_link:
-                    {}
                   ego_vehicle/gnss:
                     gps:
                       {}
@@ -781,7 +781,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -3.1550137996673584
+      Angle: -3.154996871948242
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -791,11 +791,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 8.379764556884766
-      Target Frame: world
+      Scale: 10
+      Target Frame: base_link
       Value: TopDownOrtho (rviz)
-      X: -9.270532608032227
-      Y: 133.6513671875
+      X: 0.762397289276123
+      Y: -2.810472011566162
     Saved: ~
 Window Geometry:
   DecisionMakerPanel:
