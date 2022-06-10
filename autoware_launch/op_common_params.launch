@@ -15,19 +15,19 @@
 	<arg name="rollOutDensity" 		default="3.5" />
 	<arg name="rollOutsNumber" 		default="0"    />
 
-	<arg name="maxLocalPlanDistance" 	default="50" />	
-	<arg name="horizonDistance" 		default="120"  />
+	<arg name="maxLocalPlanDistance" 	default="100" />	
+	<arg name="horizonDistance" 		default="150"  />
 	
-	<arg name="minFollowingDistance" 	default="80.0"  /> <!-- should be bigger than Distance to follow -->	
-	<arg name="minDistanceToAvoid" 		default="50.0" /> <!-- should be smaller than minFollowingDistance and larger than maxDistanceToAvoid -->
-	<arg name="maxDistanceToAvoid" 		default="6.0"  /> <!-- should be smaller than minDistanceToAvoid -->
+	<arg name="minFollowingDistance" 	default="70.0"  /> <!-- should be bigger than Distance to follow -->	
+	<arg name="minDistanceToAvoid" 		default="69.0" /> <!-- should be smaller than minFollowingDistance and larger than maxDistanceToAvoid -->
+	<arg name="maxDistanceToAvoid" 		default="5.0"  /> <!-- should be smaller than minDistanceToAvoid -->
 	<arg name="speedProfileFactor"		default="1.0"  />
 	
 	<arg name="smoothingDataWeight"		default="0.45"  />
 	<arg name="smoothingSmoothWeight"	default="0.4"  />	
 	
-	<arg name="horizontalSafetyDistance"	default="0.3"  />
-	<arg name="verticalSafetyDistance"	default="0.5"  />
+	<arg name="horizontalSafetyDistance"	default="0.1"  />
+	<arg name="verticalSafetyDistance"	default="0.1"  />/
 	
 	<arg name="enableSwerving" 		default="true"  />
 	<arg name="enableFollowing" 		default="true" />	
@@ -44,21 +44,21 @@
 	<arg name="wheelBaseLength" 		default="2.7"  />
 	<arg name="turningRadius"		default="3.2"  />
 	<arg name="maxWheelAngle" 		default="1.22" />
-	<arg name="steeringDelay" 		default="0.3" />
+	<arg name="steeringDelay" 		default="0.5" />
 	<arg name="minPursuiteDistance" 	default="5.0" />
-	<arg name="maxVelocity" 		default="16.7" />
+	<arg name="maxVelocity" 		default="16.67" />
 	<arg name="minVelocity" 		default="0.2" />
-	<arg name="maxAcceleration" 		default="2" />
-	<arg name="maxDeceleration" 		default="-2" />
+	<arg name="maxAcceleration" 		default="10" />
+	<arg name="maxDeceleration" 		default="-10" />
 	<!-- Internal ACC parameters -->
 	<arg name="use_internal_acc" 		default="true" />
-	<arg name="accelerationPushRatio" 	default="5" />
-	<arg name="brakingPushRatio" 		default="7" />
+	<arg name="accelerationPushRatio" 	default="5.7" />
+	<arg name="brakingPushRatio" 		default="1" /> <!-- 7 -->
 	<arg name="curveSlowDownRatio" 		default="3.0" />	
 	<!-- ................................................... -->
 
-	<arg name="additionalBrakingDistance"   default="10.0" />	
-	<arg name="giveUpDistance" 		default="0.0"  />
+	<arg name="additionalBrakingDistance"   default="60.0" />	
+	<arg name="giveUpDistance" 		default="5.0"  />
 			
 	<arg name="velocitySource"		default="3" /> <!-- read velocities from (0- Odometry, 1- autoware current_velocities, 2- car_info 3- vehicle status) -->
 	<arg name="vel_odom_topic"		default="/carla/zati/odometry" />

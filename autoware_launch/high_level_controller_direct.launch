@@ -27,20 +27,20 @@
 	<arg name="steerGainKI" 		default="10.0"/>
 	<arg name="steerGainKD" 		default="10.0"/>
 	
-	<arg name="accelGainKP" 		default="7.0"/>
-	<arg name="accelGainKI" 		default="4.0"/>
+	<arg name="accelGainKP" 		default="10.0"/>
+	<arg name="accelGainKI" 		default="3.0"/>
 	<arg name="accelGainKD" 		default="3.0"/>
 	
-	<arg name="brakeGainKP" 		default="10.0"/>
-	<arg name="brakeGainKI" 		default="6.0"/>
+	<arg name="brakeGainKP" 		default="7.0"/>
+	<arg name="brakeGainKI" 		default="3.0"/>
 	<arg name="brakeGainKD" 		default="1.0"/> 	
 
 	<arg name="accelInitDelay" 		default="0.0"/> <!-- seconds --> 
-	<arg name="accelAvgDelay" 		default="0.7"/> <!-- seconds --> 
+	<arg name="accelAvgDelay" 		default="0.3"/> <!-- seconds --> 
 	<arg name="avgAcceleration"		default="2.55"/> <!-- m/s2 -->
 	
 	<arg name="brakeInitDelay" 		default="0.8"/> <!-- seconds -->
-	<arg name="brakeAvgDelay" 		default="0.3"/> <!-- seconds -->
+	<arg name="brakeAvgDelay" 		default="0.1"/> <!-- seconds -->
 	<arg name="avgDeceleration"		default="-2.5"/> <!-- m/s2 -->
 	 
 </include>

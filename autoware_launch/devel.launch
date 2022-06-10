@@ -6,12 +6,12 @@
   <arg name='role_name' default='ego_vehicle'/>
   <!-- use comma separated format "x,y,z,roll,pitch,yaw" -->
   <!-- <arg name="spawn_point" default="325,195.3,10,0,0,180"/>  -->
-  <arg name="spawn_point" default="-10,214,0.3,0,0,-90"/> <!-- For Town04 sim -->
+  <arg name="spawn_point" default="228.7,388.6,0.3,0,0,-180"/> <!-- For Town04 sim -->
   <!-- <arg name="spawn_point" default="160,55,0,0,0,180"/> -->
   <!-- <arg name="spawn_point" default="-9.4,-152.8 ,0,0,0,270"/> -->
   <arg name="enable_openplanner_simulation" default="false"/>
   <arg name="enable_object_insert" default="false"/>
-  <arg name="kml_map_path" default="$(env CARLA_MAPS_PATH)/VectorMaps/Town04.kml"/>
+  <arg name="kml_map_path" default="$(env CARLA_MAPS_PATH)/VectorMaps/Untitled04.kml"/>
   <arg name="spawn_sensors_only" default="True"/>
 
   <include file="$(find carla_autoware_bridge)/launch/carla_autoware_bridge_with_manual_control.launch">
@@ -30,10 +30,10 @@
     <arg name='kml_map_path' value='$(arg kml_map_path)'/>
   </include>
 
-  <!-- <include file="$(find carla_ros_scenario_runner)/launch/carla_ros_scenario_runner.launch">
+  <include file="$(find carla_ros_scenario_runner)/launch/carla_ros_scenario_runner.launch">
     <arg name='role_name' value='$(arg role_name)'/>
     <arg name='scenario_runner_path' value='/home/irol/scenario_runner'/>
-  </include> -->
+  </include>
 
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(env CARLA_AUTOWARE_ROOT)/rviz.rviz" />
 
