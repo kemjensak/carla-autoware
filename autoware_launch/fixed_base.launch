@@ -66,7 +66,7 @@
          /initialpose    (currently not published)
     Out: /localizer_pose (estimated pose)
   -->
-  <node pkg="tf" type="static_transform_publisher" name="ego2base_link_TF" args="0 0 0 0 0 0 ego_vehicle base_link 10" />
+  <node pkg="tf" type="static_transform_publisher" name="ego2base_link_TF" args="-1 0 0 0 0 0 ego_vehicle base_link 10" />
 
   <remap from="/robot_pose" to="/ndt_pose"/>
   <node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher" >
